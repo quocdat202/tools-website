@@ -1,0 +1,108 @@
+"use client";
+
+import * as React from "react";
+import { Search, Moon, Sun, Menu } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import { TOOL_CATEGORIES } from "@/lib/constants/tools";
+import { useRouter } from "next/navigation";
+import { LanguageSwitcher } from "@/components/language-switcher/language-switcher";
+
+interface HeaderProps {
+  onMenuClick?: () => void;
+}
+
+export function Header({ onMenuClick }: HeaderProps) {
+  const { theme, setTheme } = useTheme();
+  const [open, setOpen] = React.useState(false);
+  const router = useRouter();
+  const t = useTranslations("common");
+  const tCategories = useTranslations("categories");
+  const tTools = useTranslations("tools");
+
+  React.useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setOpen((open) => !open);
+      }
+    };
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
+
+  return (
+    <header className="sticky top-0 z-50 flex h-14 items-center gap-4 border-b bg-background px-4 lg:px-6">
+      <Button
+        variant="ghost"
+        size="icon"
+        className="lg:hidden"
+        onClick={onMenuClick}
+      >
+        <Menu className="h-5 w-5" />
+        <span className="sr-only">Toggle menu</span>
+      </Button>
+
+      <div className="flex-1">
+        <Button
+          variant="outline"
+          className="relative h-9 w-full justify-start text-sm text-muted-foreground sm:w-64 md:w-80"
+          onClick={() => setOpen(true)}
+        >
+          <Search className="mr-2 h-4 w-4" />
+          <span>{t("searchPlaceholder")}</span>
+          <kbd className="pointer-events-none absolute right-2 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+            <span className="text-xs">⌘</span>K
+          </kbd>
+        </Button>
+      </div>
+
+      <LanguageSwitcher />
+
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      >
+        <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+        <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <span className="sr-only">Toggle theme</span>
+      </Button>
+
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <CommandInput placeholder={t("searchPlaceholder")} />
+        <CommandList>
+          <CommandEmpty>{t("noResults")}</CommandEmpty>
+          {TOOL_CATEGORIES.map((category) => (
+            <CommandGroup key={category.id} heading={tCategories(`${category.id}.name`)}>
+              {category.tools.map((tool) => (
+                <CommandItem
+                  key={tool.id}
+                  value={tool.name}
+                  onSelect={() => {
+                    router.push(tool.href);
+                    setOpen(false);
+                  }}
+                >
+                  <span>{tTools(`${tool.id}.name`)}</span>
+                  <span className="ml-2 text-xs text-muted-foreground">
+                    {tTools(`${tool.id}.description`)}
+                  </span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          ))}
+        </CommandList>
+      </CommandDialog>
+    </header>
+  );
+}

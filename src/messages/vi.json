@@ -1,0 +1,181 @@
+{
+  "common": {
+    "search": "Tìm kiếm",
+    "searchPlaceholder": "Tìm công cụ...",
+    "searchShortcut": "Nhấn ⌘K để tìm kiếm",
+    "noResults": "Không tìm thấy kết quả",
+    "loading": "Đang tải...",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép!",
+    "clear": "Xóa",
+    "reset": "Đặt lại",
+    "apply": "Áp dụng",
+    "cancel": "Hủy",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "close": "Đóng",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "previous": "Trước đó",
+    "submit": "Gửi",
+    "download": "Tải xuống",
+    "upload": "Tải lên",
+    "export": "Xuất",
+    "import": "Nhập",
+    "settings": "Cài đặt",
+    "language": "Ngôn ngữ",
+    "theme": "Giao diện",
+    "lightMode": "Sáng",
+    "darkMode": "Tối",
+    "systemTheme": "Hệ thống"
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "tools": "Công cụ",
+    "allTools": "Tất cả công cụ",
+    "explorer": "Khám phá công cụ"
+  },
+  "explorer": {
+    "title": "Khám phá công cụ",
+    "description": "Duyệt tất cả các công cụ theo danh mục",
+    "toolsCount": "{count} công cụ"
+  },
+  "categories": {
+    "converters": {
+      "name": "Bộ chuyển đổi",
+      "description": "Chuyển đổi giữa các định dạng và đơn vị khác nhau"
+    },
+    "developer": {
+      "name": "Công cụ lập trình",
+      "description": "Các công cụ dành cho lập trình viên"
+    },
+    "language": {
+      "name": "Ngôn ngữ & Văn bản",
+      "description": "Xử lý văn bản và công cụ ngôn ngữ"
+    },
+    "finance": {
+      "name": "Công cụ tài chính",
+      "description": "Máy tính và công cụ tài chính"
+    },
+    "data": {
+      "name": "Công cụ dữ liệu",
+      "description": "Trực quan hóa và phân tích dữ liệu"
+    }
+  },
+  "tools": {
+    "number-to-words": {
+      "name": "Số thành chữ",
+      "description": "Chuyển đổi số thành chữ bằng nhiều ngôn ngữ"
+    },
+    "date-format": {
+      "name": "Định dạng ngày",
+      "description": "Chuyển đổi ngày giữa các định dạng khác nhau"
+    },
+    "unit-converter": {
+      "name": "Chuyển đổi đơn vị",
+      "description": "Chuyển đổi giữa các đơn vị đo lường khác nhau"
+    },
+    "file-size": {
+      "name": "Kích thước tệp",
+      "description": "Chuyển đổi giữa các đơn vị kích thước tệp (KB, MB, GB, v.v.)"
+    },
+    "case-converter": {
+      "name": "Chuyển đổi chữ hoa/thường",
+      "description": "Chuyển đổi văn bản giữa các kiểu chữ hoa/thường"
+    },
+    "base-converter": {
+      "name": "Chuyển đổi cơ số",
+      "description": "Chuyển đổi số giữa các cơ số khác nhau"
+    },
+    "color-converter": {
+      "name": "Chuyển đổi màu",
+      "description": "Chuyển đổi màu giữa các định dạng HEX, RGB, HSL"
+    },
+    "timestamp-converter": {
+      "name": "Chuyển đổi Timestamp",
+      "description": "Chuyển đổi giữa Unix timestamp và ngày"
+    },
+    "json-formatter": {
+      "name": "Định dạng JSON",
+      "description": "Định dạng và xác thực dữ liệu JSON"
+    },
+    "xml-formatter": {
+      "name": "Định dạng XML",
+      "description": "Định dạng và xác thực dữ liệu XML"
+    },
+    "sql-formatter": {
+      "name": "Định dạng SQL",
+      "description": "Định dạng câu truy vấn SQL"
+    },
+    "regex-tester": {
+      "name": "Kiểm tra Regex",
+      "description": "Kiểm tra và gỡ lỗi biểu thức chính quy"
+    },
+    "hash-generator": {
+      "name": "Tạo Hash",
+      "description": "Tạo mã hash MD5, SHA-1, SHA-256"
+    },
+    "jwt-decoder": {
+      "name": "Giải mã JWT",
+      "description": "Giải mã và kiểm tra token JWT"
+    },
+    "word-counter": {
+      "name": "Đếm từ",
+      "description": "Đếm từ, ký tự, câu và đoạn văn"
+    },
+    "vietnamese-katakana": {
+      "name": "Tiếng Việt ⇄ Katakana",
+      "description": "Chuyển đổi giữa tiếng Việt và Katakana"
+    },
+    "text-diff": {
+      "name": "So sánh văn bản",
+      "description": "So sánh hai văn bản và tìm sự khác biệt"
+    },
+    "text-normalizer": {
+      "name": "Chuẩn hóa văn bản",
+      "description": "Chuẩn hóa và làm sạch văn bản"
+    },
+    "salary-calculator": {
+      "name": "Lương Gross ⇄ Net (VN)",
+      "description": "Tính lương Gross sang Net và ngược lại theo quy định Việt Nam"
+    },
+    "vat-calculator": {
+      "name": "Tính thuế VAT (VN)",
+      "description": "Tính thuế giá trị gia tăng theo quy định Việt Nam"
+    },
+    "currency-converter": {
+      "name": "Chuyển đổi tiền tệ",
+      "description": "Chuyển đổi giữa các loại tiền tệ"
+    },
+    "pivot-table": {
+      "name": "Bảng Pivot",
+      "description": "Tạo bảng pivot từ tệp CSV/Excel"
+    }
+  },
+  "pivotTable": {
+    "uploadFile": "Tải tệp lên",
+    "dropZone": "Kéo thả tệp CSV hoặc Excel vào đây, hoặc nhấp để duyệt",
+    "loadSample": "Tải dữ liệu mẫu",
+    "configuration": "Cấu hình",
+    "groupBy": "Nhóm theo",
+    "splitBy": "Chia theo",
+    "metrics": "Số liệu",
+    "availableFields": "Trường khả dụng",
+    "dragFieldsHere": "Kéo trường vào đây",
+    "noFieldsSelected": "Chưa chọn trường nào",
+    "aggregateFunction": "Hàm tổng hợp",
+    "sum": "Tổng",
+    "avg": "Trung bình",
+    "count": "Đếm",
+    "min": "Nhỏ nhất",
+    "max": "Lớn nhất",
+    "first": "Đầu tiên",
+    "last": "Cuối cùng",
+    "exportCSV": "Xuất CSV",
+    "exportExcel": "Xuất Excel",
+    "rows": "dòng",
+    "columns": "cột",
+    "total": "Tổng cộng"
+  }
+}

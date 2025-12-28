@@ -1,0 +1,181 @@
+{
+  "common": {
+    "search": "Search",
+    "searchPlaceholder": "Search tools...",
+    "searchShortcut": "Press ⌘K to search",
+    "noResults": "No results found",
+    "loading": "Loading...",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "clear": "Clear",
+    "reset": "Reset",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "download": "Download",
+    "upload": "Upload",
+    "export": "Export",
+    "import": "Import",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode",
+    "systemTheme": "System"
+  },
+  "nav": {
+    "home": "Home",
+    "tools": "Tools",
+    "allTools": "All Tools",
+    "explorer": "Tool Explorer"
+  },
+  "explorer": {
+    "title": "Tool Explorer",
+    "description": "Browse all available tools by category",
+    "toolsCount": "{count} tools"
+  },
+  "categories": {
+    "converters": {
+      "name": "Converters",
+      "description": "Convert between different formats and units"
+    },
+    "developer": {
+      "name": "Developer Tools",
+      "description": "Tools for developers"
+    },
+    "language": {
+      "name": "Language & Text",
+      "description": "Text manipulation and language tools"
+    },
+    "finance": {
+      "name": "Finance Tools",
+      "description": "Financial calculators and tools"
+    },
+    "data": {
+      "name": "Data Tools",
+      "description": "Data visualization and analysis tools"
+    }
+  },
+  "tools": {
+    "number-to-words": {
+      "name": "Number to Words",
+      "description": "Convert numbers to words in multiple languages"
+    },
+    "date-format": {
+      "name": "Date Format Converter",
+      "description": "Convert dates between different formats"
+    },
+    "unit-converter": {
+      "name": "Unit Converter",
+      "description": "Convert between different units of measurement"
+    },
+    "file-size": {
+      "name": "File Size Converter",
+      "description": "Convert between file size units (KB, MB, GB, etc.)"
+    },
+    "case-converter": {
+      "name": "Case Converter",
+      "description": "Convert text between different cases"
+    },
+    "base-converter": {
+      "name": "Base Converter",
+      "description": "Convert numbers between different bases"
+    },
+    "color-converter": {
+      "name": "Color Converter",
+      "description": "Convert colors between HEX, RGB, HSL formats"
+    },
+    "timestamp-converter": {
+      "name": "Timestamp Converter",
+      "description": "Convert between Unix timestamps and dates"
+    },
+    "json-formatter": {
+      "name": "JSON Formatter",
+      "description": "Format and validate JSON data"
+    },
+    "xml-formatter": {
+      "name": "XML Formatter",
+      "description": "Format and validate XML data"
+    },
+    "sql-formatter": {
+      "name": "SQL Formatter",
+      "description": "Format SQL queries"
+    },
+    "regex-tester": {
+      "name": "Regex Tester",
+      "description": "Test and debug regular expressions"
+    },
+    "hash-generator": {
+      "name": "Hash Generator",
+      "description": "Generate MD5, SHA-1, SHA-256 hashes"
+    },
+    "jwt-decoder": {
+      "name": "JWT Decoder",
+      "description": "Decode and inspect JWT tokens"
+    },
+    "word-counter": {
+      "name": "Word Counter",
+      "description": "Count words, characters, sentences, and paragraphs"
+    },
+    "vietnamese-katakana": {
+      "name": "Vietnamese ⇄ Katakana",
+      "description": "Convert between Vietnamese and Katakana"
+    },
+    "text-diff": {
+      "name": "Text Diff",
+      "description": "Compare two texts and find differences"
+    },
+    "text-normalizer": {
+      "name": "Text Normalizer",
+      "description": "Normalize and clean text"
+    },
+    "salary-calculator": {
+      "name": "Salary Gross ⇄ Net (VN)",
+      "description": "Calculate Vietnam salary Gross to Net and vice versa"
+    },
+    "vat-calculator": {
+      "name": "VAT Calculator (VN)",
+      "description": "Calculate VAT for Vietnam"
+    },
+    "currency-converter": {
+      "name": "Currency Converter",
+      "description": "Convert between currencies"
+    },
+    "pivot-table": {
+      "name": "Pivot Table",
+      "description": "Create pivot tables from CSV/Excel files"
+    }
+  },
+  "pivotTable": {
+    "uploadFile": "Upload File",
+    "dropZone": "Drop CSV or Excel file here, or click to browse",
+    "loadSample": "Load Sample Data",
+    "configuration": "Configuration",
+    "groupBy": "Group By",
+    "splitBy": "Split By",
+    "metrics": "Metrics",
+    "availableFields": "Available Fields",
+    "dragFieldsHere": "Drag fields here",
+    "noFieldsSelected": "No fields selected",
+    "aggregateFunction": "Aggregate Function",
+    "sum": "Sum",
+    "avg": "Average",
+    "count": "Count",
+    "min": "Minimum",
+    "max": "Maximum",
+    "first": "First",
+    "last": "Last",
+    "exportCSV": "Export CSV",
+    "exportExcel": "Export Excel",
+    "rows": "rows",
+    "columns": "columns",
+    "total": "Total"
+  }
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Search, Moon, Sun, Menu } from "lucide-react";
+import { Search, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
@@ -13,15 +13,13 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { Separator } from "@/components/ui/separator";
 import { TOOL_CATEGORIES } from "@/lib/constants/tools";
 import { useRouter } from "next/navigation";
 import { LanguageSwitcher } from "@/components/language-switcher/language-switcher";
 
-interface HeaderProps {
-  onMenuClick?: () => void;
-}
-
-export function Header({ onMenuClick }: HeaderProps) {
+export function Header() {
   const { theme, setTheme } = useTheme();
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
@@ -41,16 +39,9 @@ export function Header({ onMenuClick }: HeaderProps) {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 flex h-14 items-center gap-4 border-b bg-background px-4 lg:px-6">
-      <Button
-        variant="ghost"
-        size="icon"
-        className="lg:hidden"
-        onClick={onMenuClick}
-      >
-        <Menu className="h-5 w-5" />
-        <span className="sr-only">Toggle menu</span>
-      </Button>
+    <header className="sticky top-0 z-50 flex shrink-0 items-center gap-2 border-b bg-background px-4 h-12.5">
+      <SidebarTrigger className="-ml-1" />
+      <Separator orientation="vertical" className="mr-2 h-4" />
 
       <div className="flex-1">
         <Button
@@ -75,7 +66,7 @@ export function Header({ onMenuClick }: HeaderProps) {
       >
         <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
         <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-        <span className="sr-only">Toggle theme</span>
+        <span className="sr-only">{t("toggleTheme")}</span>
       </Button>
 
       <CommandDialog open={open} onOpenChange={setOpen}>
@@ -83,7 +74,10 @@ export function Header({ onMenuClick }: HeaderProps) {
         <CommandList>
           <CommandEmpty>{t("noResults")}</CommandEmpty>
           {TOOL_CATEGORIES.map((category) => (
-            <CommandGroup key={category.id} heading={tCategories(`${category.id}.name`)}>
+            <CommandGroup
+              key={category.id}
+              heading={tCategories(`${category.id}.name`)}
+            >
               {category.tools.map((tool) => (
                 <CommandItem
                   key={tool.id}

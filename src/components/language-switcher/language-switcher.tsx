@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Languages } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,17 +10,18 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useLocale, locales, localeNames, localeFlags, Locale } from "@/lib/i18n";
+import { useLocale, locales, localeNames, localeFlags } from "@/lib/i18n";
 
 export function LanguageSwitcher() {
   const { locale, setLocale } = useLocale();
+  const t = useTranslations("common");
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon">
           <Languages className="h-5 w-5" />
-          <span className="sr-only">Switch language</span>
+          <span className="sr-only">{t("switchLanguage")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

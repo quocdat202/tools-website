@@ -1,4 +1,8 @@
 {
+  "app": {
+    "name": "Nền tảng Công cụ",
+    "description": "Bộ sưu tập các công cụ lập trình, chuyển đổi và tiện ích"
+  },
   "common": {
     "search": "Tìm kiếm",
     "searchPlaceholder": "Tìm công cụ...",
@@ -28,7 +32,21 @@
     "theme": "Giao diện",
     "lightMode": "Sáng",
     "darkMode": "Tối",
-    "systemTheme": "Hệ thống"
+    "systemTheme": "Hệ thống",
+    "input": "Đầu vào",
+    "output": "Đầu ra",
+    "result": "Kết quả",
+    "results": "Kết quả",
+    "options": "Tùy chọn",
+    "format": "Định dạng",
+    "convert": "Chuyển đổi",
+    "generate": "Tạo",
+    "calculate": "Tính toán",
+    "validate": "Xác thực",
+    "loadSample": "Tải mẫu",
+    "switchLanguage": "Đổi ngôn ngữ",
+    "toggleMenu": "Bật/tắt menu",
+    "toggleTheme": "Bật/tắt giao diện"
   },
   "nav": {
     "home": "Trang chủ",

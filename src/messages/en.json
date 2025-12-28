@@ -1,4 +1,8 @@
 {
+  "app": {
+    "name": "Tools Platform",
+    "description": "A collection of developer tools, converters, and utilities"
+  },
   "common": {
     "search": "Search",
     "searchPlaceholder": "Search tools...",
@@ -28,7 +32,21 @@
     "theme": "Theme",
     "lightMode": "Light Mode",
     "darkMode": "Dark Mode",
-    "systemTheme": "System"
+    "systemTheme": "System",
+    "input": "Input",
+    "output": "Output",
+    "result": "Result",
+    "results": "Results",
+    "options": "Options",
+    "format": "Format",
+    "convert": "Convert",
+    "generate": "Generate",
+    "calculate": "Calculate",
+    "validate": "Validate",
+    "loadSample": "Load Sample",
+    "switchLanguage": "Switch Language",
+    "toggleMenu": "Toggle menu",
+    "toggleTheme": "Toggle theme"
   },
   "nav": {
     "home": "Home",

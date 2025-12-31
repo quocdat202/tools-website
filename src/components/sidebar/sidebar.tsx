@@ -24,15 +24,17 @@ import {
   ArrowRightLeft,
   ChevronRight,
   Code,
+  LayoutGrid,
   Languages,
   Table,
-  Toolbox,
   Wallet,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as React from "react";
+import toolsLogo from "@/app/tools_logo.png";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   ArrowRightLeft,
@@ -51,16 +53,28 @@ export function AppSidebar() {
 
   return (
     <Sidebar>
-      <SidebarHeader className="border-b">
+      <SidebarHeader className="border-b border-primary/10">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
+            <SidebarMenuButton
+              size="lg"
+              asChild
+              className="hover:bg-accent/80 transition-colors duration-200"
+            >
               <Link href="/tools">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                  <Toolbox className="h-4 w-4" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden">
+                  <Image
+                    src={toolsLogo}
+                    alt="Tools Logo"
+                    width={32}
+                    height={32}
+                    className="object-cover"
+                  />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">{tApp("name")}</span>
+                  <span className="font-semibold gradient-text">
+                    {tApp("name")}
+                  </span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -75,7 +89,7 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname === "/tools"}>
                   <Link href="/tools">
-                    <Toolbox className="h-4 w-4" />
+                    <LayoutGrid className="h-4 w-4" />
                     <span>{tNav("explorer")}</span>
                   </Link>
                 </SidebarMenuButton>
@@ -98,12 +112,12 @@ export function AppSidebar() {
             >
               <SidebarGroup>
                 <SidebarGroupLabel asChild>
-                  <CollapsibleTrigger className="flex w-full items-center gap-2">
-                    <Icon className="h-4 w-4" />
+                  <CollapsibleTrigger className="flex w-full items-center gap-2 hover:text-primary transition-colors duration-200">
+                    <Icon className="h-4 w-4 text-primary/70" />
                     <span className="flex-1 text-left text-sm">
                       {tCategories(`${category.id}.name`)}
                     </span>
-                    <ChevronRight className="h-4 w-4 transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                    <ChevronRight className="h-4 w-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                   </CollapsibleTrigger>
                 </SidebarGroupLabel>
                 <CollapsibleContent>

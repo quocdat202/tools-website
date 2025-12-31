@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     "A collection of free online developer tools, converters, and utilities. JSON formatter, unit converter, hash generator, regex tester, and more.",
   manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
   },
 };
 

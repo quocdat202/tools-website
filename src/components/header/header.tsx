@@ -39,19 +39,19 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 flex shrink-0 items-center gap-2 border-b bg-background px-4 h-12.5">
-      <SidebarTrigger className="-ml-1" />
-      <Separator orientation="vertical" className="mr-2 h-4" />
+    <header className="sticky top-0 z-50 flex shrink-0 items-center gap-2 border-b border-primary/10 px-4 h-12.5 glass">
+      <SidebarTrigger className="-ml-1 hover:bg-accent/80 transition-colors duration-200" />
+      <Separator orientation="vertical" className="mr-2 h-4 bg-primary/10" />
 
       <div className="flex-1">
         <Button
           variant="outline"
-          className="relative h-9 w-full justify-start text-sm text-muted-foreground sm:w-64 md:w-80"
+          className="relative h-9 w-full justify-start text-sm text-muted-foreground sm:w-64 md:w-80 hover:border-primary/40 hover:shadow-sm hover:shadow-primary/10 transition-all duration-200"
           onClick={() => setOpen(true)}
         >
-          <Search className="mr-2 h-4 w-4" />
+          <Search className="mr-2 h-4 w-4 text-primary/60" />
           <span>{t("searchPlaceholder")}</span>
-          <kbd className="pointer-events-none absolute right-2 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+          <kbd className="pointer-events-none absolute right-2 hidden h-5 select-none items-center gap-1 rounded border border-primary/20 bg-accent px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
             <span className="text-xs">⌘</span>K
           </kbd>
         </Button>
@@ -62,10 +62,11 @@ export function Header() {
       <Button
         variant="ghost"
         size="icon"
+        className="hover:bg-accent/80 hover:text-primary transition-all duration-200"
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
-        <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-        <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <Sun className="h-5 w-5 rotate-0 scale-100 transition-all duration-300 dark:-rotate-90 dark:scale-0 text-amber-500" />
+        <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100 text-primary" />
         <span className="sr-only">{t("toggleTheme")}</span>
       </Button>
 

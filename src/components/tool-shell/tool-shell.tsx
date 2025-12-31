@@ -1,7 +1,10 @@
 "use client";
 
 import * as React from "react";
+import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ToolShellProps {
@@ -19,18 +22,31 @@ export function ToolShell({
   className,
   actions,
 }: ToolShellProps) {
+  const router = useRouter();
+
   return (
     <div className={cn("flex flex-col gap-6", className)}>
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
-          {description && (
-            <p className="text-muted-foreground">{description}</p>
-          )}
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between animate-fade-in">
+        <div className="flex items-start gap-3">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => router.back()}
+            className="shrink-0 -ml-2 mt-0.5 hover:bg-accent/80 hover:text-primary transition-all duration-200"
+            aria-label="Go back"
+          >
+            <ArrowLeft className="h-5 w-5" />
+          </Button>
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight gradient-text">{title}</h1>
+            {description && (
+              <p className="text-muted-foreground">{description}</p>
+            )}
+          </div>
         </div>
         {actions && <div className="flex items-center gap-2">{actions}</div>}
       </div>
-      <div className="flex-1">{children}</div>
+      <div className="flex-1 animate-fade-in-up opacity-0" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>{children}</div>
     </div>
   );
 }

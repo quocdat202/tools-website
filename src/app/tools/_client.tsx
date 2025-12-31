@@ -84,8 +84,8 @@ export default function ToolExplorerClient() {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex flex-col gap-4">
-        <h1 className="text-3xl font-bold tracking-tight">{tExplorer("title")}</h1>
+      <div className="flex flex-col gap-4 animate-fade-in">
+        <h1 className="text-3xl font-bold tracking-tight gradient-text">{tExplorer("title")}</h1>
         <p className="text-muted-foreground max-w-2xl">
           {tExplorer("description")}
         </p>
@@ -95,29 +95,32 @@ export default function ToolExplorerClient() {
             placeholder={t("searchPlaceholder")}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-9"
+            className="pl-9 transition-all duration-200 focus:shadow-md focus:shadow-primary/10"
           />
         </div>
       </div>
 
       {searchQuery.trim() && (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 animate-fade-in">
           <h2 className="text-xl font-semibold">
             {t("search")} ({filteredTools.length})
           </h2>
           {filteredTools.length > 0 ? (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {filteredTools.map((tool) => {
+              {filteredTools.map((tool, index) => {
                 const Icon = iconMap[tool.icon] || Table;
                 return (
                   <Link key={tool.id} href={tool.href}>
-                    <Card className="h-full transition-colors hover:bg-accent">
+                    <Card
+                      className="h-full group cursor-pointer hover:-translate-y-1"
+                      style={{ animationDelay: `${index * 0.05}s` }}
+                    >
                       <CardHeader className="pb-2">
-                        <div className="flex items-center gap-2">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-9 w-9 items-center justify-center rounded-lg icon-gradient text-primary shadow-sm group-hover:shadow-md group-hover:shadow-primary/20 transition-all duration-300">
                             <Icon className="h-4 w-4" />
                           </div>
-                          <CardTitle className="text-base">{tTools(`${tool.id}.name`)}</CardTitle>
+                          <CardTitle className="text-base group-hover:text-primary transition-colors duration-200">{tTools(`${tool.id}.name`)}</CardTitle>
                         </div>
                       </CardHeader>
                       <CardContent>
@@ -140,29 +143,40 @@ export default function ToolExplorerClient() {
       )}
 
       {!searchQuery.trim() && (
-        <div className="flex flex-col gap-8">
-          {TOOL_CATEGORIES.map((category) => {
+        <div className="flex flex-col gap-10">
+          {TOOL_CATEGORIES.map((category, categoryIndex) => {
             const CategoryIcon = iconMap[category.icon] || Table;
             return (
-              <div key={category.id} className="flex flex-col gap-4">
-                <div className="flex items-center gap-2">
-                  <CategoryIcon className="h-5 w-5 text-primary" />
+              <div
+                key={category.id}
+                className="flex flex-col gap-4 animate-fade-in-up opacity-0"
+                style={{ animationDelay: `${categoryIndex * 0.1}s`, animationFillMode: 'forwards' }}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg icon-gradient shadow-sm">
+                    <CategoryIcon className="h-4 w-4 text-primary" />
+                  </div>
                   <h2 className="text-xl font-semibold">{tCategories(`${category.id}.name`)}</h2>
-                  <Badge variant="outline">{tExplorer("toolsCount", { count: category.tools.length })}</Badge>
+                  <Badge variant="outline" className="border-primary/20 text-primary">
+                    {tExplorer("toolsCount", { count: category.tools.length })}
+                  </Badge>
                 </div>
                 <p className="text-muted-foreground">{tCategories(`${category.id}.description`)}</p>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {category.tools.map((tool) => {
+                  {category.tools.map((tool, toolIndex) => {
                     const Icon = iconMap[tool.icon] || Table;
                     return (
                       <Link key={tool.id} href={tool.href}>
-                        <Card className="h-full transition-colors hover:bg-accent">
+                        <Card
+                          className="h-full group cursor-pointer hover:-translate-y-1 animate-fade-in-up opacity-0"
+                          style={{ animationDelay: `${categoryIndex * 0.1 + toolIndex * 0.05 + 0.1}s`, animationFillMode: 'forwards' }}
+                        >
                           <CardHeader className="pb-2">
-                            <div className="flex items-center gap-2">
-                              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <div className="flex items-center gap-3">
+                              <div className="flex h-9 w-9 items-center justify-center rounded-lg icon-gradient text-primary shadow-sm group-hover:shadow-md group-hover:shadow-primary/20 transition-all duration-300">
                                 <Icon className="h-4 w-4" />
                               </div>
-                              <CardTitle className="text-base">{tTools(`${tool.id}.name`)}</CardTitle>
+                              <CardTitle className="text-base group-hover:text-primary transition-colors duration-200">{tTools(`${tool.id}.name`)}</CardTitle>
                             </div>
                           </CardHeader>
                           <CardContent>

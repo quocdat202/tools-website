@@ -20,7 +20,9 @@ export default function PivotTableClient() {
   >({});
   const [errors, setErrors] = React.useState<string[]>([]);
   const [loading, setLoading] = React.useState(false);
-  const [config, setConfig] = React.useState<PivotConfig>(getDefaultPivotConfig());
+  const [config, setConfig] = React.useState<PivotConfig>(
+    getDefaultPivotConfig()
+  );
 
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
@@ -99,22 +101,118 @@ export default function PivotTableClient() {
   const handleLoadSample = async () => {
     // Create sample data
     const sampleData = [
-      { region: "North", product: "Widget A", sales: 1200, quantity: 100, date: "2024-01" },
-      { region: "North", product: "Widget B", sales: 800, quantity: 60, date: "2024-01" },
-      { region: "South", product: "Widget A", sales: 1500, quantity: 120, date: "2024-01" },
-      { region: "South", product: "Widget B", sales: 950, quantity: 75, date: "2024-01" },
-      { region: "East", product: "Widget A", sales: 1100, quantity: 90, date: "2024-01" },
-      { region: "East", product: "Widget B", sales: 700, quantity: 55, date: "2024-01" },
-      { region: "West", product: "Widget A", sales: 1300, quantity: 105, date: "2024-01" },
-      { region: "West", product: "Widget B", sales: 850, quantity: 65, date: "2024-01" },
-      { region: "North", product: "Widget A", sales: 1400, quantity: 115, date: "2024-02" },
-      { region: "North", product: "Widget B", sales: 900, quantity: 70, date: "2024-02" },
-      { region: "South", product: "Widget A", sales: 1600, quantity: 130, date: "2024-02" },
-      { region: "South", product: "Widget B", sales: 1000, quantity: 80, date: "2024-02" },
-      { region: "East", product: "Widget A", sales: 1250, quantity: 100, date: "2024-02" },
-      { region: "East", product: "Widget B", sales: 750, quantity: 60, date: "2024-02" },
-      { region: "West", product: "Widget A", sales: 1450, quantity: 118, date: "2024-02" },
-      { region: "West", product: "Widget B", sales: 900, quantity: 72, date: "2024-02" },
+      {
+        region: "North",
+        product: "Widget A",
+        sales: 1200,
+        quantity: 100,
+        date: "2024-01",
+      },
+      {
+        region: "North",
+        product: "Widget B",
+        sales: 800,
+        quantity: 60,
+        date: "2024-01",
+      },
+      {
+        region: "South",
+        product: "Widget A",
+        sales: 1500,
+        quantity: 120,
+        date: "2024-01",
+      },
+      {
+        region: "South",
+        product: "Widget B",
+        sales: 950,
+        quantity: 75,
+        date: "2024-01",
+      },
+      {
+        region: "East",
+        product: "Widget A",
+        sales: 1100,
+        quantity: 90,
+        date: "2024-01",
+      },
+      {
+        region: "East",
+        product: "Widget B",
+        sales: 700,
+        quantity: 55,
+        date: "2024-01",
+      },
+      {
+        region: "West",
+        product: "Widget A",
+        sales: 1300,
+        quantity: 105,
+        date: "2024-01",
+      },
+      {
+        region: "West",
+        product: "Widget B",
+        sales: 850,
+        quantity: 65,
+        date: "2024-01",
+      },
+      {
+        region: "North",
+        product: "Widget A",
+        sales: 1400,
+        quantity: 115,
+        date: "2024-02",
+      },
+      {
+        region: "North",
+        product: "Widget B",
+        sales: 900,
+        quantity: 70,
+        date: "2024-02",
+      },
+      {
+        region: "South",
+        product: "Widget A",
+        sales: 1600,
+        quantity: 130,
+        date: "2024-02",
+      },
+      {
+        region: "South",
+        product: "Widget B",
+        sales: 1000,
+        quantity: 80,
+        date: "2024-02",
+      },
+      {
+        region: "East",
+        product: "Widget A",
+        sales: 1250,
+        quantity: 100,
+        date: "2024-02",
+      },
+      {
+        region: "East",
+        product: "Widget B",
+        sales: 750,
+        quantity: 60,
+        date: "2024-02",
+      },
+      {
+        region: "West",
+        product: "Widget A",
+        sales: 1450,
+        quantity: 118,
+        date: "2024-02",
+      },
+      {
+        region: "West",
+        product: "Widget B",
+        sales: 900,
+        quantity: 72,
+        date: "2024-02",
+      },
     ];
 
     const sampleColumns = ["region", "product", "sales", "quantity", "date"];
@@ -150,9 +248,7 @@ export default function PivotTableClient() {
               <FileSpreadsheet className="h-3 w-3" />
               {file.name}
             </Badge>
-            <Badge variant="outline">
-              {data.length.toLocaleString()} rows
-            </Badge>
+            <Badge variant="outline">{data.length.toLocaleString()} rows</Badge>
             <Button variant="outline" size="sm" onClick={handleClear}>
               <X className="mr-2 h-4 w-4" />
               Clear

@@ -28,7 +28,6 @@ import {
   Languages,
   Table,
   Wallet,
-  Wrench,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -53,31 +52,28 @@ export function AppSidebar() {
   const tTools = useTranslations("tools");
 
   return (
-    <Sidebar className="border-r border-border/60">
-      <SidebarHeader className="border-b border-border/60 px-3 py-4">
+    <Sidebar className="border-r border-border/50">
+      <SidebarHeader className="border-b border-border/50 px-4 py-3">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
               size="lg"
               asChild
-              className="hover:bg-accent/80 transition-all duration-200 rounded-xl gap-3"
+              className="hover:bg-accent transition-colors rounded-lg gap-2.5"
             >
               <Link href="/tools">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl overflow-hidden bg-primary/10 ring-1 ring-primary/20">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden bg-primary/10 ring-1 ring-primary/20">
                   <Image
                     src={toolsLogo}
                     alt="Tools Logo"
-                    width={36}
-                    height={36}
+                    width={32}
+                    height={32}
                     className="object-cover"
                   />
                 </div>
-                <div className="flex flex-col gap-0">
-                  <span className="font-semibold text-foreground tracking-tight text-[15px]">
+                <div className="flex flex-col gap-0 leading-tight">
+                  <span className="font-semibold text-foreground text-[14px]">
                     {tApp("name")}
-                  </span>
-                  <span className="text-[11px] text-muted-foreground font-normal tracking-wide uppercase">
-                    Workspace
                   </span>
                 </div>
               </Link>
@@ -86,7 +82,7 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent className="py-3 px-2">
+      <SidebarContent className="py-2">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -94,10 +90,10 @@ export function AppSidebar() {
                 <SidebarMenuButton
                   asChild
                   isActive={pathname === "/tools"}
-                  className="hover:bg-accent/80 transition-all duration-200 rounded-lg h-9 font-medium"
+                  className="hover:bg-accent transition-colors rounded-lg"
                 >
                   <Link href="/tools">
-                    <LayoutGrid className="h-4 w-4 text-primary/70" />
+                    <LayoutGrid className="h-4 w-4" />
                     <span>{tNav("explorer")}</span>
                   </Link>
                 </SidebarMenuButton>
@@ -105,8 +101,6 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-
-        <div className="mx-3 my-1.5 h-px bg-border/50" />
 
         {TOOL_CATEGORIES.map((category) => {
           const Icon = iconMap[category.icon] || Table;
@@ -120,25 +114,25 @@ export function AppSidebar() {
               defaultOpen={hasActiveChild}
               className="group/collapsible"
             >
-              <SidebarGroup className="py-0.5">
+              <SidebarGroup className="py-0">
                 <SidebarGroupLabel asChild>
-                  <CollapsibleTrigger className="flex w-full items-center gap-2.5 hover:bg-accent/60 rounded-lg px-2.5 py-2 transition-all duration-200 text-muted-foreground hover:text-foreground">
-                    <Icon className="h-3.5 w-3.5 text-primary/50" />
-                    <span className="flex-1 text-left text-[13px] font-medium tracking-tight">
+                  <CollapsibleTrigger className="flex w-full items-center gap-2 hover:bg-accent rounded-lg px-2 py-1.5 transition-colors text-muted-foreground hover:text-foreground">
+                    <Icon className="h-4 w-4" />
+                    <span className="flex-1 text-left text-[13px] font-medium">
                       {tCategories(`${category.id}.name`)}
                     </span>
-                    <ChevronRight className="h-3.5 w-3.5 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90 opacity-50" />
+                    <ChevronRight className="h-3.5 w-3.5 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                   </CollapsibleTrigger>
                 </SidebarGroupLabel>
                 <CollapsibleContent>
                   <SidebarGroupContent>
-                    <SidebarMenuSub className="border-l-primary/15">
+                    <SidebarMenuSub>
                       {category.tools.map((tool) => (
                         <SidebarMenuSubItem key={tool.id}>
                           <SidebarMenuSubButton
                             asChild
                             isActive={pathname === tool.href}
-                            className="hover:bg-accent/60 transition-all duration-200 rounded-lg text-[13px]"
+                            className="hover:bg-accent transition-colors rounded-lg text-[13px]"
                           >
                             <Link href={tool.href}>
                               <span>{tTools(`${tool.id}.name`)}</span>

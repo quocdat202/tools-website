@@ -25,29 +25,29 @@ export function ToolShell({
   const router = useRouter();
 
   return (
-    <div className={cn("flex flex-col gap-8 max-w-6xl animate-fade-in", className)}>
+    <div className={cn("flex flex-col gap-6 max-w-6xl animate-fade-in", className)}>
       {/* Header */}
-      <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-start gap-3">
           <Button
             variant="ghost"
             size="icon"
             onClick={() => router.back()}
-            className="shrink-0 -ml-2 mt-0.5 text-muted-foreground hover:text-primary hover:bg-primary/8 transition-all duration-200 rounded-xl"
+            className="shrink-0 -ml-2 mt-0.5 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Go back"
           >
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div>
-            <h1 className="text-2xl font-bold tracking-tight text-foreground">
+            <h1 className="text-2xl font-semibold tracking-tight text-foreground">
               {title}
             </h1>
             {description && (
-              <p className="text-muted-foreground mt-1 text-[15px] leading-relaxed">{description}</p>
+              <p className="text-muted-foreground mt-0.5 text-[15px]">{description}</p>
             )}
           </div>
         </div>
-        {actions && <div className="flex items-center gap-2 mt-3 sm:mt-0">{actions}</div>}
+        {actions && <div className="flex items-center gap-2 mt-2 sm:mt-0">{actions}</div>}
       </div>
 
       {/* Content */}
@@ -65,11 +65,11 @@ interface ToolCardProps {
 
 export function ToolCard({ title, description, children, className }: ToolCardProps) {
   return (
-    <Card className={cn("border-border/60 shadow-sm", className)}>
+    <Card className={cn("border-border/50", className)}>
       {(title || description) && (
         <CardHeader className="pb-4">
-          {title && <CardTitle className="text-lg font-semibold tracking-tight">{title}</CardTitle>}
-          {description && <CardDescription className="text-[13px]">{description}</CardDescription>}
+          {title && <CardTitle className="text-lg font-medium">{title}</CardTitle>}
+          {description && <CardDescription>{description}</CardDescription>}
         </CardHeader>
       )}
       <CardContent className={!title && !description ? "pt-6" : ""}>

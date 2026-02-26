@@ -70,3 +70,10 @@ next-env.d.ts
 .zencoder/
 skills/
 yarn.lock
+
+# documentation
+docs/
+PIVOT_TABLE_DOCUMENTATION.md
+pivot-table.md
+TOOLS_LOGIC_VI.md
+DEVELOPMENT_GUIDE.md

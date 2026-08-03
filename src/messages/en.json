@@ -57,7 +57,8 @@
   "explorer": {
     "title": "Tool Explorer",
     "description": "Browse all available tools by category",
-    "toolsCount": "{count} tools"
+    "toolsCount": "{count} tools",
+    "tagline": "{count} tools · everything runs in your browser"
   },
   "categories": {
     "converters": {

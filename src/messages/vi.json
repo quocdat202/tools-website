@@ -57,7 +57,8 @@
   "explorer": {
     "title": "Khám phá công cụ",
     "description": "Duyệt tất cả các công cụ theo danh mục",
-    "toolsCount": "{count} công cụ"
+    "toolsCount": "{count} công cụ",
+    "tagline": "{count} công cụ · chạy hoàn toàn trên máy bạn"
   },
   "categories": {
     "converters": {

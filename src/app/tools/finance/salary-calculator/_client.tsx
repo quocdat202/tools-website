@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { ArrowRightLeft } from "lucide-react";
-import { ToolShell, ToolCard, ToolGrid } from "@/components/tool-shell/tool-shell";
+import { ArrowRightLeft, Calculator } from "lucide-react";
+import { ToolShell, ToolCard, ToolGrid, ToolEmpty } from "@/components/tool-shell/tool-shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -192,9 +192,10 @@ export default function SalaryCalculatorClient() {
     <ToolShell
       title="Vietnam Salary Calculator"
       description="Calculate Gross ⇄ Net salary with insurance and tax deductions"
+      category="Finance Tools"
     >
       <div className="space-y-6">
-        <ToolCard title="Input">
+        <ToolCard title="Your salary">
           <div className="space-y-4">
             <div className="flex justify-center">
               <Button variant="outline" onClick={handleSwapMode}>
@@ -370,6 +371,13 @@ export default function SalaryCalculatorClient() {
               </ToolCard>
             </ToolGrid>
           </>
+        )}
+
+        {!result && (
+          <ToolEmpty
+            icon={<Calculator className="h-6 w-6" aria-hidden />}
+            hint="Enter a salary above to see the breakdown of insurance, personal income tax, and total employer cost."
+          />
         )}
       </div>
     </ToolShell>

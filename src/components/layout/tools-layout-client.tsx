@@ -12,10 +12,19 @@ export function ToolsLayoutClient({
 }) {
   return (
     <SidebarProvider>
+      {/* Người dùng bàn phím không phải tab qua toàn bộ menu mới tới nội dung. */}
+      <a
+        href="#tool-content"
+        className="skip-link rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+      >
+        Bỏ qua điều hướng
+      </a>
       <AppSidebar />
       <SidebarInset>
         <Header />
-        <main className="flex-1 overflow-auto p-5 lg:p-8">{children}</main>
+        <main id="tool-content" className="flex-1 overflow-auto p-5 lg:p-8">
+          {children}
+        </main>
       </SidebarInset>
     </SidebarProvider>
   );
